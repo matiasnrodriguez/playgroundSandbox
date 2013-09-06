@@ -8,6 +8,9 @@ public class CannonBall: MonoBehaviour
 	/// </summary>
 	public GameObject Cannonball;
 	
+	float spawnDistance = 1.0f;
+	float force = 700.0f;
+	
 	public Transform target;
 	
 	// Use this for initialization
@@ -23,11 +26,11 @@ public class CannonBall: MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
-	       GameObject ball = (GameObject) Instantiate(Cannonball, transform.position, Quaternion.identity);
-	       ball.transform.position = target.position;
+	       GameObject ball = (GameObject) Instantiate( Cannonball, 
+								transform.position + spawnDistance * transform.forward, 
+								transform.rotation);
 			
-		   ball.rigidbody.AddForce(129f, 0, 700f);
-		   ball.rigidbody.useGravity = true;
+		   ball.rigidbody.AddForce(transform.forward * force);
 	       Destroy(ball, 10);
 		}
 	}
