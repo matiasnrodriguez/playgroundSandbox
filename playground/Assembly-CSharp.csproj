@@ -44,28 +44,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Assets\Locomotion System\AlignmentTracker.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\GhostOriginal.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\HeadLookController.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\IK1JointAnalytic.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\IKSimple.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\IKSolver.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\IMotionAnalyzer.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\Interpolator.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\LegAnimator.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\LegController.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\MotionAnalyzer.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\MotionAnalyzerBackwards.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\PolarGradientBandInterpolator.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\TrajectoryVisualizer.cs" />
-     <Compile Include="Assets\Assets\Locomotion System\Util.cs" />
-     <Compile Include="Assets\Assets\ViralRagdoll\Scripts\ViralAnimator.cs" />
-     <Compile Include="Assets\Assets\ViralRagdoll\Scripts\ViralRagDoll.cs" />
+     <Compile Include="Assets\Scripts\CannonBall.cs" />
+     <Compile Include="Assets\Scripts\Explosion.cs" />
+     <Compile Include="Assets\Scripts\PortalBehavoir.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
-     <None Include="Assets\Assets\Shaders\Blended Decal.shader" />
-     <None Include="Assets\Assets\Shaders\Glass.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

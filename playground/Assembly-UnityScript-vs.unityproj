@@ -44,56 +44,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Enemy\RayAiAlly.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Enemy\RayAiZero.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\CamBobber.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\Collision Checker.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\RayCrossHair.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\RayExplosionSystem.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\RayGameMenu.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\RayGamePause.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\RayPowerUp.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\ViralAiSpawn.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\ViralBulletHoleHelper.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\ViralFx.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\ViralGameManager.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\ViralGuiSkin.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Generals\ViralSpawnController.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Player\EnterObject.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Player\PlayerController.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Player\PlayerHP.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Player\ViralRagdoll.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\RayAmmo&amp;HealthBox.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\RayDamageReciever.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\RayDamegeGiver.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\RayDestroy.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\SimpleDamageGiver.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\GunBobber.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\GunDropper.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\GunPoser.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayExplosive.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayExplosiveLauncher.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayGunAnimator.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayGunMelee.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayGunShoot.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayMountedWeapon.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RaySpecialGun.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayWeaponsPickUp.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\FPX\Weapons\RayWeaponsSelect.js" />
-     <Compile Include="Assets\Assets\Outside Assets\Scripts\Vehicles\Chopper\ViralExplosionChunk.js" />
-     <Compile Include="Assets\Assets\Standard Assets\Character Controllers\Scripts\CharacterMotor.js" />
-     <Compile Include="Assets\Assets\Standard Assets\Character Controllers\Scripts\MouseLook.js" />
-     <Compile Include="Assets\Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" />
-     <Compile Include="Assets\Assets\TopDownKit\Scripts\FX\ViralToRagdoll.js" />
-     <Compile Include="Assets\Assets\TopDownKit\Scripts\FX\ViralTopBlood.js" />
-     <Compile Include="Assets\Assets\TopDownKit\Scripts\ViraTopAiAnimator.js" />
-     <Compile Include="Assets\Assets\TopDownKit\Scripts\ViralAiController.js" />
-     <Compile Include="Assets\Assets\TopDownKit\Scripts\ViralTopKill.js" />
+     <Compile Include="Assets\Scripts\TeleportableObject.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
-     <None Include="Assets\Assets\Shaders\Blended Decal.shader" />
-     <None Include="Assets\Assets\Shaders\Glass.shader" />
  <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
