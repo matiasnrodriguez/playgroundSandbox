@@ -32,7 +32,7 @@ public class PortalBehavoir : MonoBehaviour
 		Physics.IgnoreCollision(collider,otherPortal.collider,true);
 		
 		Vector3 finalPos = otherPortal.transform.position;
-		finalPos.z -= 1;
+		finalPos.z -= 2;
 		trigger.transform.position = finalPos;
 		trigger.transform.rotation = otherPortal.transform.rotation;
 		

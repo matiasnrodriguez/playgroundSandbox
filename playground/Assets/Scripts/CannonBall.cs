@@ -10,6 +10,7 @@ public class CannonBall: MonoBehaviour
 	
 	float spawnDistance = 1.0f;
 	float force = 700.0f;
+	float cannonBallLifeTime = 15.0f;
 	
 	public Transform target;
 	
@@ -31,7 +32,7 @@ public class CannonBall: MonoBehaviour
 								transform.rotation);
 			
 		   ball.rigidbody.AddForce(transform.forward * force);
-	       Destroy(ball, 10);
+	       Destroy(ball, cannonBallLifeTime);
 		}
 	}
 }
