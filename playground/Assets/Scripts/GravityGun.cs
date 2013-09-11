@@ -9,7 +9,7 @@ public class GravityGun : MonoBehaviour
 	/// <summary>
 	/// The default catch range for the gravity gun.
 	/// </summary>
-	float catchRange = 30.0f;
+	float catchRange = 15.0f;
 	/// <summary>
 	/// The default hold distance from the player.
 	/// </summary>
@@ -17,7 +17,7 @@ public class GravityGun : MonoBehaviour
 	/// <summary>
 	/// The default minimum force if accumulate is enable.
 	/// </summary>
-	float minForce = 1000;
+	//float minForce = 1000;
 	/// <summary>
 	/// The default max force if accumulate is enable..
 	/// </summary>
@@ -34,11 +34,11 @@ public class GravityGun : MonoBehaviour
 	/// <summary>
 	/// Gravity gun state enumeration.
 	/// </summary>
-	private enum GravityGunState { Free, Catch, Occupied, Charge, Release};
+	private enum GravityGunState { Free, Catch, Charge, Release, Drop };
 	/// <summary>
 	/// The initial state of the gravity gun.
 	/// </summary>
-	private GravityGunState gravityGunState = 0;
+	private GravityGunState gravityGunState = GravityGunState.Free;
 	
 	/// <summary>
 	/// The rigid body to hold.
@@ -47,63 +47,79 @@ public class GravityGun : MonoBehaviour
 	/// <summary>
 	/// The default current force.
 	/// </summary>
-	private float currentForce = 1000;
+	private float currentForce = 40;
+	
+	/// <summary>
+	/// The time to wait after throwing to pick an object.
+	/// </summary>
+	private float pickWait = 0;
 	
 	/// <summary>
 	/// Fixeds the update.
 	/// </summary>
 	void FixedUpdate () 
 	{
-	    if(gravityGunState == GravityGunState.Free) 
+		if( pickWait > 0 )
 		{
-	        if(Input.GetButton("Fire1")) 
+			pickWait -= Time.fixedDeltaTime;
+			return;	
+		}
+		
+		switch( gravityGunState )
+		{
+		case GravityGunState.Free:
+			if( Input.GetButton( "Fire1" ) ) 
 			{
 	            RaycastHit hit;
 	
-	            if(Physics.Raycast(	transform.position, transform.forward, 
-									out hit, catchRange, layerMask) ) 
+	            if( Physics.Raycast( transform.position, transform.forward, 
+									out hit, catchRange, layerMask ) ) 
 				{
-	                if(hit.rigidbody) 
+	                if( hit.rigidbody ) 
 					{
 	                    rigid = hit.rigidbody;
+						rigid.useGravity = false;
 	                    gravityGunState = GravityGunState.Catch;
 	                }
 	            }
 	        }
-	    }
-	    else if(gravityGunState == GravityGunState.Catch) 
-		{
-	        rigid.MovePosition(transform.position + transform.forward * holdDistance);
-	
-	        if(!Input.GetButton("Fire1"))
-	            gravityGunState = GravityGunState.Occupied;
-	    }
-	    else if(gravityGunState == GravityGunState.Occupied) 
-		{
-	        if(!Input.GetButton("Fire1"))
+			break;
+			
+		case GravityGunState.Catch:
+			rigid.MovePosition(transform.position + transform.forward * holdDistance);
+			
+			if( !Input.GetButton( "Fire1" ) )
+			{
 	            gravityGunState = GravityGunState.Charge;
-	    }
-	    else if(gravityGunState == GravityGunState.Charge) 
-		{
-	        //rigid.MovePosition(transform.position + transform.forward * holdDistance);
-			/*if(currentForce < maxForce) 
+			}
+			break;
+		
+		case GravityGunState.Charge:
+			rigid.MovePosition(transform.position + transform.forward * holdDistance);
+			if( Input.GetButton( "Fire1" ) )
 			{
-	            currentForce += forceChargePerSec * Time.deltaTime;
-	        }
-	        else 
-			{
-	            currentForce = maxForce;
-	        }*/
-	
-	        if(!Input.GetButton("Fire1"))
 	            gravityGunState = GravityGunState.Release;
-	    }
-		else if(gravityGunState == GravityGunState.Release) 
-		{
-	        //rigid.AddForce(transform.forward * currentForce);
-	        currentForce = minForce;
+			}
+			else if( Input.GetButton( "Fire2" ) )
+			{
+				gravityGunState = GravityGunState.Drop;
+			}
+			break;
+			
+		case GravityGunState.Drop:
+			rigid.useGravity = true;
 	        gravityGunState = GravityGunState.Free;
-	    }
+			rigid = null;
+			break;
+			
+		case GravityGunState.Release:
+			pickWait = 1.0f;
+			rigid.useGravity = true;
+			rigid.AddForce( transform.forward * currentForce, ForceMode.Impulse );
+	        gravityGunState = GravityGunState.Free;
+			rigid = null;
+			break;
+		}
 	}
 	
 	// Use this for initialization
