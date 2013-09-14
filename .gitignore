@@ -1,0 +1,8 @@
+
+playground/Library
+playground/Temp
+*.csproj
+*.sln
+*.pidb
+*.userprefs
+*.DS_Store
