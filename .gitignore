@@ -1,3 +1,9 @@
 
-playground/Assets/Standard Assets/
+playground/Library
 playground/Temp
+*.csproj
+*.sln
+*.pidb
+*.userprefs
+*.DS_Store
+playground/Build/
