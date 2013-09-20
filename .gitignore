@@ -6,3 +6,4 @@ playground/Temp
 *.pidb
 *.userprefs
 *.DS_Store
+playground/Build/

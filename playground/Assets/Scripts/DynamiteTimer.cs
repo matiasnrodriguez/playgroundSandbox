@@ -3,17 +3,15 @@ using System.Collections;
 
 public class DynamiteTimer : MonoBehaviour 
 {
-	private TextMesh  		m_Text;
-	private TimedExplosion 	m_Explosion;
+	public TextMesh   	  text;
+	public TimedExplosion timer;
 	
 	void Start()
 	{
-		m_Text 		= GetComponent<TextMesh>();
-		m_Explosion = transform.parent.GetComponent<TimedExplosion>();//GetComponent( "TimedExplosion" ) as TimedExplosion;
 	}
 
 	void Update() 
     {
-		m_Text.text = m_Explosion.getTimeLeft().ToString( "0.00" );
+		text.text = timer.getTimeLeft().ToString( "0.00" );
     }
 }
