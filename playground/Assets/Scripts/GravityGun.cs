@@ -9,11 +9,11 @@ public class GravityGun : MonoBehaviour
 	/// <summary>
 	/// The default catch range for the gravity gun.
 	/// </summary>
-	float catchRange = 15.0f;
+	public float catchRange = 15.0f;
 	/// <summary>
 	/// The default hold distance from the player.
 	/// </summary>
-	float holdDistance = 4.0f;
+	public float holdDistance = 4.0f;
 	/// <summary>
 	/// The default minimum force if accumulate is enable.
 	/// </summary>
@@ -29,7 +29,7 @@ public class GravityGun : MonoBehaviour
 	/// <summary>
 	/// The default layer mask.
 	/// </summary>
-	LayerMask layerMask = -1;
+	public LayerMask layerMask = -1;
 	
 	/// <summary>
 	/// Gravity gun state enumeration.
