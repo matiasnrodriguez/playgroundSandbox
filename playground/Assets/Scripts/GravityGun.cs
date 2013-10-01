@@ -59,6 +59,7 @@ public class GravityGun : MonoBehaviour
 	/// </summary>
 	void FixedUpdate () 
 	{
+		Quaternion fixedRotation = transform.rotation;
 		if( pickWait > 0 )
 		{
 			pickWait -= Time.fixedDeltaTime;
@@ -68,7 +69,7 @@ public class GravityGun : MonoBehaviour
 		switch( gravityGunState )
 		{
 		case GravityGunState.Free:
-			if( Input.GetButton( "Fire1" ) ) 
+			if( Input.GetKeyDown( KeyCode.E ) ) 
 			{
 	            RaycastHit hit;
 	
@@ -79,6 +80,7 @@ public class GravityGun : MonoBehaviour
 					{
 	                    rigid = hit.rigidbody;
 						rigid.useGravity = false;
+						fixedRotation = rigid.transform.rotation;
 	                    gravityGunState = GravityGunState.Catch;
 	                }
 	            }
@@ -86,21 +88,23 @@ public class GravityGun : MonoBehaviour
 			break;
 			
 		case GravityGunState.Catch:
+			rigid.transform.rotation = fixedRotation;
 			rigid.MovePosition(transform.position + transform.forward * holdDistance);
 			
-			if( !Input.GetButton( "Fire1" ) )
+			if( !Input.GetKeyDown( KeyCode.E ) )
 			{
 	            gravityGunState = GravityGunState.Charge;
 			}
 			break;
 		
 		case GravityGunState.Charge:
+			rigid.transform.rotation = fixedRotation;
 			rigid.MovePosition(transform.position + transform.forward * holdDistance);
-			if( Input.GetButton( "Fire1" ) )
+			if( Input.GetKeyDown( KeyCode.E ) )
 			{
 	            gravityGunState = GravityGunState.Release;
 			}
-			else if( Input.GetButton( "Fire2" ) )
+			else if( Input.GetKeyDown( KeyCode.R ) )
 			{
 				gravityGunState = GravityGunState.Drop;
 			}
@@ -123,12 +127,14 @@ public class GravityGun : MonoBehaviour
 	}
 	
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 	
 	}
 }
